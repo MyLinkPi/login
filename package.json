@@ -1,8 +1,8 @@
 {
-  "name": "backend-custom-components",
+  "name": "@mylinkpi/login",
   "version": "1.0.0",
-  "description": "连接派后端组件",
-  "main": "index.js",
+  "description": "连接派登录工具",
+  "main": "login.js",
   "scripts": {
     "login": "node login.js",
     "logout": "rimraf .login",
@@ -17,10 +17,7 @@
     "uuid": "^10.0.0"
   },
   "devDependencies": {
-    "@mylinkpi/fabric": "^3.0.1-0",
     "archiver": "^7.0.1",
-    "cross-env": "^7.0.3",
-    "esbuild": "^0.23.0",
     "prettier": "^3.3.3",
     "readline-sync": "^1.4.10",
     "rimraf": "^6.0.1"
