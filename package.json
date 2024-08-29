@@ -10,17 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MyLinkPi/backend-custom-components.git"
+    "url": "https://github.com/MyLinkPi/login.git"
   },
   "dependencies": {
     "axios": "^1.7.4",
-    "uuid": "^10.0.0"
-  },
-  "devDependencies": {
-    "archiver": "^7.0.1",
-    "prettier": "^3.3.3",
+    "uuid": "^10.0.0",
     "readline-sync": "^1.4.10",
     "rimraf": "^6.0.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
   },
   "license": "MIT"
 }
