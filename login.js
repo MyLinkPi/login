@@ -103,6 +103,10 @@ async function asyncLogin() {
 const fs = require('fs');
 const env = require('./env');
 
+/**
+ * 从本地文件中读取ad, token, device_id
+ * @return {Promise<{ad: any, device_id: any, token: any}>}
+ */
 async function adToken() {
     const {ad, token, device_id} = JSON.parse(fs.readFileSync(env.LOGIN_FILE, 'utf8'));
     return {ad, token, device_id}

@@ -20,3 +20,22 @@ npm run logout
 or delete .login file
 
 
+# 用函数调用
+
+```node
+
+const login = require('./login')
+console.log('start')
+const f = await login.asyncLogin();
+if (!f) {
+    console.log('login failed')
+    return
+}
+if (f) {
+    console.log('login success')
+}
+const {ad, token, device_id} = await login.adToken();
+console.log(ad, token, device_id)
+
+```
+
