@@ -108,6 +108,9 @@ const env = require('./env');
  * @return {Promise<{ad: any, device_id: any, token: any}>}
  */
 async function adToken() {
+    if (!fs.existsSync(env.LOGIN_FILE)) {
+        return {ad: '', token: '', device_id: ''}
+    }
     const {ad, token, device_id} = JSON.parse(fs.readFileSync(env.LOGIN_FILE, 'utf8'));
     return {ad, token, device_id}
 }
@@ -115,3 +118,8 @@ async function adToken() {
 exports.main = main;
 exports.asyncLogin = asyncLogin;
 exports.adToken = adToken;
+exports.logout = function () {
+    //delete file .login
+    if (fs.existsSync(env.LOGIN_FILE))
+        fs.unlinkSync(env.LOGIN_FILE)
+}

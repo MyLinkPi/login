@@ -36,6 +36,10 @@ if (f) {
 }
 const {ad, token, device_id} = await login.adToken();
 console.log(ad, token, device_id)
-
+{
+    await login.logout()
+    let {ad, token, device_id} = await login.adToken();
+    console.log(ad, token, device_id)
+}
 ```
 

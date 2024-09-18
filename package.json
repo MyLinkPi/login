@@ -1,6 +1,5 @@
 {
-  "name": "@mylinkpi/login",
-  "private": true,
+  "name": "@mylinkpi/cli-login",
   "version": "1.0.0",
   "description": "连接派登录工具",
   "main": "login.js",
