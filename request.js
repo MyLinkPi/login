@@ -53,7 +53,7 @@ async function captchaLogin(phone, captcha) {
 
 async function passwordLogin(userName, password) {
   const ret = await client.post('/api/login/account', {
-    password: sha512(`${password}${userName}LinkPi20200903!`),
+    password: sha512(`${password}${userName}LinkPi20200903!`).toString('hex'),
     userName,
     type: 'account',
     device_id,
