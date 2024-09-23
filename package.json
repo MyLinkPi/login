@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "连接派登录工具",
   "main": "login.js",
+  "types": "login.d.ts",
   "scripts": {
     "test": "echo \"No test specified\"",
-    "login": "node login.js",
+    "login": "node index.js",
     "logout": "rimraf .login",
     "greet": "cross-env-shell GREETING=Hi NAME=Joe \"echo $GREETING && echo $NAME\""
   },

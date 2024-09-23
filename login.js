@@ -7,7 +7,7 @@ readline.setDefaultOptions({
     encoding: 'utf8',
     prompt: '>==> ',
 });
-const {sendCaptcha, captchaLogin, passwordLogin} = require('./request');
+const { sendCaptcha, captchaLogin, passwordLogin } = require('./request');
 
 const phoneRegex = /^1\d{10}$/;
 const captchaRegex = /^\d{6}$/;
@@ -17,12 +17,12 @@ let status = 0
 
 async function main(p) {
     // console.log(process.argv);
-    if (!process.argv[1].split('\\').includes('login.js')) {
-        if (!p) {
-            console.log('login.js is not the main module, pass login process')
-            return;
-        }
-    }
+    // if (!process.argv[1].split('\\').includes('login.js')) {
+    //     if (!p) {
+    //         console.log('login.js is not the main module, pass login process')
+    //         return;
+    //     }
+    // }
     status = 1
     const lang = readline.keyInSelect(['english', 'chinese'], 'select language');
     const en = lang === 0;
@@ -87,8 +87,6 @@ async function main(p) {
     }
 }
 
-main();
-
 //如果结束是status不是0状态，那么就是登录被用户终止（终止前可多次试错）
 async function asyncLogin() {
     await main(1)
@@ -109,10 +107,10 @@ const env = require('./env');
  */
 async function adToken() {
     if (!fs.existsSync(env.LOGIN_FILE)) {
-        return {ad: '', token: '', device_id: ''}
+        return { ad: '', token: '', device_id: '' }
     }
-    const {ad, token, device_id} = JSON.parse(fs.readFileSync(env.LOGIN_FILE, 'utf8'));
-    return {ad, token, device_id}
+    const { ad, token, device_id } = JSON.parse(fs.readFileSync(env.LOGIN_FILE, 'utf8'));
+    return { ad, token, device_id }
 }
 
 exports.main = main;
