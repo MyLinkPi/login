@@ -3,7 +3,7 @@ const login = require('./login')
 async function test() {
     console.log('start')
 
-    const f = await login.asyncLogin();
+    const f = await login.asyncLogin('https://test.idealhangzhoucity.com');
     if (!f) {
         console.log('login failed')
         return

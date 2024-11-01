@@ -1,4 +1,5 @@
 const readline = require('readline-sync');
+let {updateHost}= require('./request');
 readline.setDefaultOptions({
     // print: function (display, encoding) {
     //   console.log('encoding:',encoding);
@@ -88,7 +89,14 @@ async function main(p) {
 }
 
 //如果结束是status不是0状态，那么就是登录被用户终止（终止前可多次试错）
-async function asyncLogin() {
+async function asyncLogin(host) {
+    if (host) {
+        if(typeof host === 'string' && host.startsWith('http')) {
+            updateHost(host)
+        }else {
+            throw new Error('host must be a string and start with http(s)')
+        }
+    }
     await main(1)
     if (status === 0) {
         return true

@@ -2,7 +2,7 @@ const axios = require('axios');
 const fs = require('node:fs');
 const env = require('./env');
 const { sha512 } = require('./util');
-const client = axios.create({ baseURL: env.LJP_URL_PREFIX, proxy: false });
+let client = axios.create({ baseURL: env.LJP_URL_PREFIX, proxy: false });
 let ad = null,
   token = null,
   device_id = null;
@@ -79,4 +79,8 @@ function getAD() {
   return ad;
 }
 
-module.exports = { sendCaptcha, captchaLogin, passwordLogin, checkLogin, ljp_req, getAD };
+module.exports = {
+    sendCaptcha, captchaLogin, passwordLogin, checkLogin, ljp_req, getAD, updateHost: (host) => {
+        client = axios.create({baseURL: host, proxy: false})
+    }
+};
