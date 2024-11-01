@@ -1,6 +1,6 @@
 {
   "name": "@mylinkpi/cli-login",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "连接派登录工具",
   "main": "login.js",
   "types": "login.d.ts",
