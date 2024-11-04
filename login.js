@@ -121,9 +121,18 @@ async function adToken() {
     return { ad, token, device_id }
 }
 
+function getAdTokenSync() {
+    if (!fs.existsSync(env.LOGIN_FILE)) {
+        return { ad: '', token: '', device_id: '' }
+    }
+    const { ad, token, device_id } = JSON.parse(fs.readFileSync(env.LOGIN_FILE, 'utf8'));
+    return { ad, token, device_id }
+}
+
 exports.main = main;
 exports.asyncLogin = asyncLogin;
 exports.adToken = adToken;
+exports.getAdTokenSync = getAdTokenSync;
 exports.logout = function () {
     //delete file .login
     if (fs.existsSync(env.LOGIN_FILE))
